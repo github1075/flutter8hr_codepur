@@ -1,7 +1,9 @@
+import 'package:demo/pages/home.dart';
+import 'package:demo/pages/login.dart';
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -11,20 +13,17 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Material(
-        child: Center(
-          child: Container(
-            child: Text(
-              'Hello Flutter',
-              style: TextStyle(
-                fontSize: 30,
-                color: Colors.blue
-              ),
-            ),
-          ),
-        ),
-
-      ),
+      themeMode:ThemeMode.light,
+      theme: ThemeData(primarySwatch: Colors.green),
+      //darkTheme: ThemeData(brightness: Brightness.light,primarySwatch: Colors.orange),
+     // home: HomePage(),
+      initialRoute:"/home",
+      routes:{
+        "/":(context)=>LoginPage(),
+        "/home":(context)=>HomePage(),
+        "/login":(context)=>LoginPage(),
+      }
+      ,
     );
   }
 }
